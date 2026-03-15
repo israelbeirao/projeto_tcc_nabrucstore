@@ -95,7 +95,7 @@ Principais tabelas:
 
 # htdocs 
 5. Acessar no navegador:
-http://localhost/nabrucstore
+http://localhost/Projeto_TCC_Loja_nabrucstore
 
 
 ---
