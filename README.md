@@ -89,9 +89,9 @@ Principais tabelas:
 1. Instalar o XAMPP
 2. Iniciar os serviços Apache e MySQL
 3. Importar o banco de dados no phpMyAdmin
-4. Colocar a pasta do projeto dentro de:
+4. Colocar a pasta do projeto dentro de: htdocs/Projeto_TCC_Loja_nabrucstore
 
-# htdocs 
+# Acesso
 5. Acessar no navegador:
 http://localhost/Projeto_TCC_Loja_nabrucstore
 
