@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("conexao.php");
+include("../backend/conexao.php");
 
 $erro = "";
 
@@ -20,6 +20,7 @@ $usuario = $result->fetch_assoc();
 
 $_SESSION['usuario'] = $usuario['nome'];
 $_SESSION['tipo'] = $usuario['tipo'];
+$_SESSION['usuario_id'] = $usuario['id'];
 
 header("Location: index.php");
 exit;
@@ -126,7 +127,7 @@ font-weight:bold;
 <div class="login-box">
 
 <div class="logo">
-<img src="img/logo.png">
+<img src="../assets/img/logo.png">
 </div>
 
 <h2>Entrar</h2>
