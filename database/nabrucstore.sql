@@ -33,7 +33,7 @@ CREATE TABLE enderecos (
     bairro VARCHAR(100),
     cidade VARCHAR(100),
     estado VARCHAR(2),
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
 );
 
 -- Tabela de Cartões
@@ -45,8 +45,7 @@ CREATE TABLE cartoes (
     final_cartao VARCHAR(4),
     bandeira VARCHAR(30),
     validade VARCHAR(10),
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
-);
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
 
 -- Tabela de Pedidos
 
@@ -56,7 +55,7 @@ CREATE TABLE pedidos (
     total DECIMAL(10,2),
     status VARCHAR(50) DEFAULT 'Pedido realizado',
     data_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
 );
 
 -- Tabela de Itens do Pedido
@@ -67,6 +66,6 @@ CREATE TABLE itens_pedido (
     produto_id INT NOT NULL,
     quantidade INT NOT NULL,
     preco_unitario DECIMAL(10,2),
-    FOREIGN KEY (pedido_id) REFERENCES pedidos(id),
-    FOREIGN KEY (produto_id) REFERENCES produtos(id)
+    FOREIGN KEY (pedido_id) REFERENCES pedidos(id) ON DELETE CASCADE,
+    FOREIGN KEY (produto_id) REFERENCES produtos(id) ON DELETE CASCADE
 );
