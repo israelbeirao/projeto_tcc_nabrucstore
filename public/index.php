@@ -1,7 +1,17 @@
 <?php
 session_start();
-include("conexao.php");
+include("../backend/conexao.php");
+if(isset($_POST['id_produto'])){
+    $id = $_POST['id_produto'];
+
+    if(isset($_SESSION['carrinho'][$id])){
+        $_SESSION['carrinho'][$id]++;
+    }else{
+        $_SESSION['carrinho'][$id] = 1;
+    }
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -169,8 +179,13 @@ display:block;
 content:" ▼";
 font-size:12px;
 }
-
-
+  
+/* Carrinho */
+  
+.carrinho-menu{...}
+.mini-carrinho{...}
+.item-mini{...}
+.controle{...}
 
 </style>
 
@@ -200,8 +215,9 @@ echo '<div class="dropdown">';
 echo '<a href="#">📦 Pedidos</a>';
 echo '<a href="#">🔄 Trocas e Devoluções</a>';
 echo '<a href="#">❤️ Favoritos</a>';
-echo '<a href="#">📍 Meus Endereços</a>';
-echo '<a href="#">💳 Meus Cartões</a>';
+echo '<a href="endereco.php">📍 Meus Endereços</a>';
+echo '<a href="cartoes.php">💳 Meus Cartões</a>';
+
 
 /* APENAS ADMIN */
 
@@ -252,7 +268,10 @@ echo "<h3>".$row['nome']."</h3>";
 
 echo "<p>R$ ".$row['preco']."</p>";
 
-echo "<button>Adicionar ao Carrinho</button>";
+echo "<form method='POST' action=''>";
+echo "<input type='hidden' name='id_produto' value='".$row['id']."'>";
+echo "<button type='submit'>Adicionar ao Carrinho</button>";
+echo "</form>";
 
 echo "</div>";
 
