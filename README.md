@@ -51,7 +51,6 @@ Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 # Estrutura do Projeto
 
 ```
-```text
 nabrucstore
 │
 ├── backend
