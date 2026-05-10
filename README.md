@@ -32,7 +32,16 @@ Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 
 - Visualização de produtos
 - Catálogo com imagem, nome e preço
+- Carrinho de compras
+- Controle de quantidade de produtos
+- Finalização de pedidos
 
+### Cliente
+
+- Cadastro de endereços
+- Cadastro de cartões
+- Persistência de pedidos
+  
 ### Administração
 
 - Painel administrativo para cadastro de produtos
@@ -42,20 +51,30 @@ Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 # Estrutura do Projeto
 
 ```
+```text
 nabrucstore
 │
-├── index.php
-├── login.php
-├── cadastro.php
-├── logout.php
-├── minha_conta.php
-├── conexao.php
+├── backend
+│   ├── conexao.php
+│   ├── cadastrar_produto.php
+│   └── gerar_senha.php
 │
-├── img
-│   └── logo.png
+├── database
+│   └── nabrucstore.sql
 │
-└── banco
-    └── script.sql
+├── public
+│   ├── index.php
+│   ├── login.php
+│   ├── cadastro.php
+│   ├── logout.php
+│   ├── minha_conta.php
+│   ├── carrinho.php
+│   ├── endereco.php
+│   ├── cartoes.php
+│   └── finalizar_pedido.php
+│
+└── img
+    └── logo.png
 ```
 
 
@@ -81,7 +100,43 @@ Principais tabelas:
 - nome
 - preco
 - imagem
+### enderecos
 
+- id
+- usuario_id
+- cep
+- rua
+- numero
+- complemento
+- bairro
+- cidade
+- estado
+
+### cartoes
+
+- id
+- usuario_id
+- nome_cartao
+- final_cartao
+- bandeira
+- validade
+
+### pedidos
+
+- id
+- usuario_id
+- total
+- status
+- data_pedido
+
+### itens_pedido
+
+- id
+- pedido_id
+- produto_id
+- quantidade
+- preco_unitario
+  
 ---
 
 # Como Executar o Projeto
@@ -97,6 +152,9 @@ http://localhost/Projeto_TCC_Loja_nabrucstore
 
 
 ---
+# Objetivo do Projeto
+
+O sistema foi desenvolvido com foco acadêmico para demonstrar a integração entre front-end, back-end e banco de dados em um ambiente de e-commerce funcional, simulando processos reais de autenticação, navegação, carrinho e finalização de pedidos.
 
 # Autor
 
